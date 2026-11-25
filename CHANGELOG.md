@@ -4,6 +4,24 @@ All notable changes to `tilttek/luck-tokens-bundle` will be documented in this f
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
+## 0.1.2-alpha - 2026-11-25
+
+### Added
+
+- `DbalTokenRules::removeGameMaster()`, which takes a member off the game masters of every table, by pages of 500
+  tables.
+
+### Changed
+
+- `LuckTokensPrivacy` takes the rules kept in the database as an optional fourth argument, given by the bundle with
+  `rules: doctrine`: the erasure takes the member off the game masters of every table, and the report names
+  `tilttek_luck_tokens_rules.game_masters` as deleted. The reason of each choice is in
+  [Erasing a member](doc/erasing-a-member.md).
+- `DbalTokenLedger::eraseHolder()` clears the reason of the entries the member holds, and the report of
+  `LuckTokensPrivacy` names `tilttek_luck_tokens_entry.reason` as deleted; the holder and the actor stay pseudonymised.
+- The development requirements accept `phil/privacy-bundle` 0.3, the version published on 2026-11-24, and no earlier
+  one, so that the package installs on its own beside the published version of that bundle.
+
 ## 0.1.1-alpha - 2026-11-24
 
 ### Changed
